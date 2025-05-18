@@ -77,7 +77,9 @@ export const App = () => {
             setIsReversed(newReversed);
 
             if (sortType === null) {
-              setGoodsList(list => [...list].reverse());
+              const base = [...goodsFromServer];
+
+              setGoodsList(newReversed ? base.reverse() : base);
             } else {
               applySorting(sortType, newReversed);
             }
